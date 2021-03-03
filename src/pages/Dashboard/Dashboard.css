@@ -58,6 +58,13 @@ body {
   color: #666;
 }
 
+.Dashboard .content .loading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .Dashboard .content .pages-grid {
   margin-top: 1rem;
   display: grid;

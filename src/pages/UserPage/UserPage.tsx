@@ -1,11 +1,10 @@
 import React from "react"
 import { useParams } from "react-router-dom"
+import { capitalize } from "../../util/stringCapitalize"
 import "./UserPage.css"
 
 const UserPage: React.FC = () => {
   const { name } = useParams<{ name: string }>()
-
-  console.log(name)
 
   const onShareClick = () => {
     // TODO: deep linking to app
@@ -16,7 +15,7 @@ const UserPage: React.FC = () => {
 
   return (
     <div className="user-page">
-      <h2>This page is for {name}</h2>
+      <h2>This page is for {capitalize(name)}</h2>
 
       <button onClick={onShareClick}>Share</button>
     </div>

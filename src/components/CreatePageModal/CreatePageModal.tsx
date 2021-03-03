@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router"
 import Spinner from "../Spinner/Spinner"
+import api from "../../services/api"
 
 import "./CreatePageModal.css"
 
@@ -28,9 +29,15 @@ const CreatePageModal: React.FC<CreatePageModalProps> = ({ onCloseModal }) => {
       setLoading(false)
       setFeedback("Page name must not exceed 20 characters")
     } else {
-      // proceed to creation on database
-      
-      history.replace("/" + pageName.toString())
+      api.post("/pages/" + pageName).then(response => {
+        setLoading(false)
+        if (response.status === 201) {
+          history.push("/" + pageName.toString())
+        }
+      }).catch(error => {
+        setLoading(false)
+        setFeedback({...error}.response.data.message)
+      })
     }
   }
 

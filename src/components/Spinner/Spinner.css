@@ -7,6 +7,14 @@
   animation: spin 650ms linear infinite;
 }
 
+.spinner.big {
+  border: 0.5rem solid rgba(0, 0, 0, 0.1);
+  border-left-color: #666;
+  width: 13rem;
+  height: 13rem;
+  animation: spin 650ms linear infinite;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
