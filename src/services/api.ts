@@ -1,14 +1,7 @@
-import axios, { AxiosInstance } from "axios"
+import axios from "axios"
 
-let axiosInstance: AxiosInstance
-if (process.env.NODE_ENV === 'development') {
-  axiosInstance = axios.create({
-    baseURL: process.env.REACT_APP_API_URL
-  })
-} else {
-  axiosInstance = axios.create({
-    baseURL: process.env.API_URL
-  })
-}
+let axiosInstance = axios.create({
+  baseURL: "https://mern-test-server.herokuapp.com"
+})
 
 export default axiosInstance
