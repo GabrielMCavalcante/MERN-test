@@ -15,12 +15,12 @@ function App() {
     async function fetchPages() {
       const response = await (await api.get("/pages")).data
 
-      const pages = response.data as { _id: string, name: string }[]
+      const pages = response.data as { _id: string, name: string, shareLink: string }[]
 
       const cardList: JSX.Element[] = []
       for (const page of pages) {
         cardList.push(
-          <PageCard key={page._id} name={page.name} />
+          <PageCard key={page._id} name={page.name} shareLink={page.shareLink}/>
         )
       }
       setAvailableCards([...cardList])

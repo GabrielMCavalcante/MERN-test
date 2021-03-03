@@ -6,11 +6,12 @@ import "./PageCard.css"
 
 interface PageCardProps {
   name: string;
+  shareLink: string;
 }
 
-const PageCard: React.FC<PageCardProps> = ({ name }) => {  
+const PageCard: React.FC<PageCardProps> = ({ name, shareLink }) => {  
   return (
-    <Link to={`/${name}`} className="page-card">
+    <Link to={{ pathname: `/${name}`, state: { shareLink } }} className="page-card">
       <div className="card-visual">
         <span style={{ backgroundColor: getRandomColor() }}>{capitalize(name).charAt(0)}</span>
       </div>

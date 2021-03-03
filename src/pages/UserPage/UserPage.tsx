@@ -1,16 +1,14 @@
 import React from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import { capitalize } from "../../util/stringCapitalize"
 import "./UserPage.css"
 
 const UserPage: React.FC = () => {
   const { name } = useParams<{ name: string }>()
+  const { shareLink } = useHistory().location.state as {shareLink: string}
 
   const onShareClick = () => {
-    // TODO: deep linking to app
-    // If user does not have app installed,
-    // redirect to [development] instragam's install page
-    // else redirect to app for this page
+    window.location.href = shareLink
   }
 
   return (

@@ -32,7 +32,9 @@ const CreatePageModal: React.FC<CreatePageModalProps> = ({ onCloseModal }) => {
       api.post("/pages/" + pageName).then(response => {
         setLoading(false)
         if (response.status === 201) {
-          history.push("/" + pageName.toString())
+          history.push("/" + pageName.toString(), {
+            shareLink: (response as any).shareLink
+          })
         }
       }).catch(error => {
         setLoading(false)
